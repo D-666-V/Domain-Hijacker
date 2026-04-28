@@ -129,14 +129,11 @@ def main():
     stats["total"] = len(domains)
     print(f"{Fore.CYAN}[*] Target Loaded: {stats['total']} domains\n")
 
-    # Yahan dhyan dena: executor ko sahi se wait karwana hai
     with ThreadPoolExecutor(max_workers=15) as executor:
         futures = {executor.submit(check_takeover, dom, args): dom for dom in domains}
-        # Ye line ensure karegi ki har ek domain scan ho jaye tabhi aage badhe
         for future in as_completed(futures):
             pass
 
-    # Scan khatam hone ke baad final status update taaki 100% dikhe
     update_status("Scan Finished", "Done")
     print(f"\n\n{Fore.MAGENTA + Style.BRIGHT}[!] SCAN COMPLETE. Loot found: {stats['vuln']}")
 
