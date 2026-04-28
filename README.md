@@ -44,7 +44,7 @@ pip3 install -r requirements.txt --break-system-packages
 python3 Domain_Hijacker.py -i targets.txt
 
 # Save Results to File
-python3 test.py -i targets.txt -o confirmed_takeovers.txt
+python3 Domain_Hijacker.py -i targets.txt -o confirmed_takeovers.txt
 
 ---
 
