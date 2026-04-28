@@ -48,11 +48,3 @@ cd Domain-Hijacker
 
 # Install the necessary firepower
 pip3 install -r requirements.txt --break-system-packages
-
-### 📊 PROOF OF WORK
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/abf7a9d1-9cba-4070-aee5-c71e28affb84" width="900" alt="Domain Hijacker Live Findings">
-</p>
-
-> **Note:** Optimized for accuracy and speed. Successfully identifying dangling assets across large-scale corporate infrastructures with 100% completion rate.
