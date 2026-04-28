@@ -14,11 +14,11 @@
 
 ### 🚀 OVERVIEW
 
-**DOMAIN HIJACKER** ek high-speed reconnaissance engine hai jo bug hunters aur security researchers ke liye banaya gaya hai. Ye automate karta hai dangling CNAMEs ki discovery aur unhe target karta hai jo takeover ke liye vulnerable hain (Cloudfront, S3, Heroku, etc.) at scale.
+**DOMAIN HIJACKER** is a high-speed reconnaissance engine engineered for elite bug hunters and security researchers. It automates the discovery of dangling CNAMEs and identifies targets vulnerable to **Domain Takeover** (Cloudfront, S3, Heroku, GitHub, Azure, etc.) at an massive scale.
 
 ### 🛠️ INSTALLATION
 
-Repo ko clone karein aur dependencies setup karein:
+Clone the repository and set up the environment:
 
 ```bash
 git clone [https://github.com/D-666-V/Domain-Hijacker.git](https://github.com/D-666-V/Domain-Hijacker.git)
