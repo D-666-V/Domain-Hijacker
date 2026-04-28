@@ -17,34 +17,53 @@
 
 **DOMAIN HIJACKER** is a specialized reconnaissance tool engineered for high-stakes bug hunting. It doesn't just scan; it hunts for dangling CNAME records that are ripe for exploitation. By utilizing **Native DNS Resolution Logic**, it bypasses standard detection lags and provides real-time verification of vulnerable assets.
 
-Whether you are targeting Fortune 500 companies or mass-hunting across millions of subdomains, this engine is built to handle the load without breaking a sweat.
-
 ---
 
 ## ⚡ KEY FEATURES
 
-* 🌀 **Chaos-Ready Multithreading:** Powered by a `ThreadPoolExecutor` that handles 15+ concurrent threads for lightning-fast results.
+* 🌀 **Chaos-Ready Multithreading:** Powered by a high-concurrency engine that handles 15+ workers for lightning-fast results.
 * 🛰️ **Native Resolver (Dig Logic):** Uses native DNS queries to confirm CNAME point-to-nowhere vulnerabilities.
-* 🛡️ **Broad Service Coverage:** Pre-configured to detect takeovers on:
-    * `Amazon S3 / Cloudfront`
-    * `Heroku / HerokuDNS`
-    * `GitHub Pages`
-    * `Microsoft Azure Websites`
-* 📟 **Elite Terminal UI:** A professional purple-themed interface with a precision progress tracker and verbose logging.
-* 📁 **Smart Logging:** Automatically saves confirmed takeovers into an organized output file for easy reporting.
+* 🛡️ **Broad Service Coverage:** Pre-configured to detect takeovers on Cloudfront, S3, Heroku, GitHub, and Azure.
+* 📟 **Elite Terminal UI:** A professional purple-themed interface with a precision progress tracker.
 
 ---
 
 ## 🛠️ INSTALLATION
 
-Get the engine running in seconds. Copy and paste the following commands:
+git clone https://github.com/D-666-V/Domain-Hijacker.git
 
-```bash
-# Clone the repository from the GodFather vault
-git clone [https://github.com/D-666-V/Domain-Hijacker.git](https://github.com/D-666-V/Domain-Hijacker.git)
-
-# Enter the tool directory
 cd Domain-Hijacker
 
-# Install the necessary firepower
 pip3 install -r requirements.txt --break-system-packages
+
+---
+
+## 📖 USAGE
+
+# Standard Hunt
+python3 test.py -i targets.txt
+
+# Save Results to File
+python3 test.py -i targets.txt -o confirmed_takeovers.txt
+
+---
+
+## 📊 PROOF OF WORK
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/abf7a9d1-9cba-4070-aee5-c71e28affb84" width="900" alt="Domain Hijacker Live Results">
+</p>
+
+> **Note:** Captured live findings using the v5.2 engine. Optimized for accuracy and speed across massive infrastructures.
+
+---
+
+## ⚠️ LEGAL DISCLAIMER
+
+This tool is strictly for **Educational Purposes** and **Authorized Security Testing** only. I, the developer (D-666-V), am not responsible for any unauthorized use or damage caused by this software. Respect the boundaries of responsible disclosure.
+
+---
+
+<p align="center">
+  <b>Built by <a href="https://github.com/D-666-V">D-666-V</a> | For the Chaos. For the Loot.</b>
+</p>
