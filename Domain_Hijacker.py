@@ -17,7 +17,6 @@ VULN_SERVICES = [
 ]
 
 def print_banner():
-    # Style variables to avoid f-string curly brace confusion
     purple = Fore.MAGENTA + Style.BRIGHT
     white = Fore.WHITE
     res = Style.RESET_ALL
