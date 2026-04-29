@@ -43,11 +43,11 @@ pip3 install -r requirements.txt --break-system-packages
 # Global Command Setup (Recommended)
 Make the tool accessible from anywhere in your terminal: sudo python3 Domain_Hijacker.py --install
 
-# Once installed, you can run the tool from any directory using the domain-hijacker 
+ Once installed, you can run the tool from any directory using the domain-hijacker 
 
-# Standard command: domain-hijacker -i targets.txt
+ Standard command: domain-hijacker -i targets.txt
 
-# Save Results to File command: domain-hijacker -i targets.txt -o confirmed_takeovers.txt
+ Save Results to File command: domain-hijacker -i targets.txt -o confirmed_takeovers.txt
 
 
 
