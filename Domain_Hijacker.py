@@ -11,6 +11,7 @@ from colorama import Fore, init, Style
 init(autoreset=True)
 
 stats = {"total": 0, "scanned": 0, "vuln": 0}
+scanned_domains = set()
 p_lock = threading.Lock()
 
 VULN_SERVICES = [
@@ -58,17 +59,10 @@ def print_banner():
 def auto_install():
     script_path = os.path.abspath(__file__)
     install_path = "/usr/local/bin/domain-hijacker"
-    
-    if os.path.exists(install_path):
-        print(f"{Fore.CYAN}[*] Tool already installed at {install_path}")
-        return
-
     try:
-        os.chmod(script_path, 0o755)
         if os.getuid() != 0:
-            print(f"{Fore.RED}[!] Error: sudo use karein installer ke liye.")
+            print(f"{Fore.RED}[!] Error: Please use sudo for installation.")
             return
-
         shutil.copyfile(script_path, install_path)
         os.chmod(install_path, 0o755)
         print(f"{Fore.GREEN}[+] Success! You can now run 'domain-hijacker' from any directory.")
@@ -80,17 +74,15 @@ def show_help():
     print(f"\n{Fore.MAGENTA}USAGE:")
     print(f"  domain-hijacker -i <input_file> [OPTIONS]\n")
     print(f"{Fore.MAGENTA}OPTIONS:")
-    print(f"{Fore.WHITE}  -i, --input      Path to file containing target domains (Required)")
-    print(f"{Fore.WHITE}  -o, --output     Path to save confirmed takeovers (Optional)")
-    print(f"{Fore.WHITE}  --install        Install tool as system command")
-    print(f"{Fore.WHITE}  -h, --help       Display this help menu\n")
-    print(f"{Fore.CYAN}INFO:")
-    print("  * Verbose mode is enabled by default.")
-    print("  * Threads are managed internally for stability.\n")
+    print(f"{Fore.WHITE}  -i, --input     Path to file containing target domains (Required)")
+    print(f"{Fore.WHITE}  -o, --output    Path to save confirmed takeovers (Optional)")
+    print(f"{Fore.WHITE}  --install       Install tool as a system-wide command")
+    print(f"{Fore.WHITE}  -h, --help      Display this help menu\n")
 
 def update_status(last_domain, msg="Checking"):
     with p_lock:
         perc = (stats['scanned'] / stats['total']) * 100 if stats['total'] > 0 else 0
+        if perc > 100: perc = 100.0
         sys.stdout.write(f"\r\033[K{Fore.MAGENTA}[{stats['scanned']}/{stats['total']}] {Fore.CYAN}{perc:.1f}% {Fore.WHITE}{msg}: {Fore.YELLOW}{last_domain[:40]}")
         sys.stdout.flush()
 
@@ -165,7 +157,5 @@ def main():
     update_status("Scan Finished", "Done")
     print(f"\n\n{Fore.MAGENTA + Style.BRIGHT}[!] SCAN COMPLETE. Loot found: {stats['vuln']}")
 
-if __name__ == "__main__":
-    main()
 if __name__ == "__main__":
     main()
