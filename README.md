@@ -30,11 +30,11 @@
 
 ## 🛠️ INSTALLATION
 
-git clone https://github.com/D-666-V/Domain-Hijacker.git
+ ``` git clone https://github.com/D-666-V/Domain-Hijacker.git ```
 
-cd Domain-Hijacker
+ ``` cd Domain-Hijacker ```
 
-pip3 install -r requirements.txt --break-system-packages
+ ``` pip3 install -r requirements.txt --break-system-packages  ```
 
 ---
 
