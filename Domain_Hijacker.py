@@ -1,8 +1,10 @@
+#!/usr/bin/env python3
 import dns.resolver
 import argparse
 import os
 import sys
 import threading
+import shutil
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from colorama import Fore, init, Style
 
@@ -53,14 +55,35 @@ def print_banner():
 {purple}╚══════════════════════════════════════════════════════╝{res}"""
     print(b)
 
+def auto_install():
+    script_path = os.path.abspath(__file__)
+    install_path = "/usr/local/bin/domain-hijacker"
+    
+    if os.path.exists(install_path):
+        print(f"{Fore.CYAN}[*] Tool already installed at {install_path}")
+        return
+
+    try:
+        os.chmod(script_path, 0o755)
+        if os.getuid() != 0:
+            print(f"{Fore.RED}[!] Error: sudo use karein installer ke liye.")
+            return
+
+        shutil.copyfile(script_path, install_path)
+        os.chmod(install_path, 0o755)
+        print(f"{Fore.GREEN}[+] Success! Ab aap 'domain-hijacker' kahi se bhi run kar sakte hain.")
+    except Exception as e:
+        print(f"{Fore.RED}[!] Installation failed: {e}")
+
 def show_help():
     print_banner()
     print(f"\n{Fore.MAGENTA}USAGE:")
-    print(f"  python3 {sys.argv[0]} -i <input_file> [OPTIONS]\n")
+    print(f"  domain-hijacker -i <input_file> [OPTIONS]\n")
     print(f"{Fore.MAGENTA}OPTIONS:")
-    print(f"{Fore.WHITE}  -i, --input     Path to file containing target domains (Required)")
-    print(f"{Fore.WHITE}  -o, --output    Path to save confirmed takeovers (Optional)")
-    print(f"{Fore.WHITE}  -h, --help      Display this help menu\n")
+    print(f"{Fore.WHITE}  -i, --input      Path to file containing target domains (Required)")
+    print(f"{Fore.WHITE}  -o, --output     Path to save confirmed takeovers (Optional)")
+    print(f"{Fore.WHITE}  --install        Install tool as system command")
+    print(f"{Fore.WHITE}  -h, --help       Display this help menu\n")
     print(f"{Fore.CYAN}INFO:")
     print("  * Verbose mode is enabled by default.")
     print("  * Threads are managed internally for stability.\n")
@@ -111,7 +134,12 @@ def main():
     parser.add_argument("-i", "--input")
     parser.add_argument("-o", "--output", default=None)
     parser.add_argument("-h", "--help", action="store_true")
+    parser.add_argument("--install", action="store_true")
     args = parser.parse_args()
+
+    if args.install:
+        auto_install()
+        sys.exit()
 
     if args.help or not args.input:
         show_help()
@@ -137,5 +165,7 @@ def main():
     update_status("Scan Finished", "Done")
     print(f"\n\n{Fore.MAGENTA + Style.BRIGHT}[!] SCAN COMPLETE. Loot found: {stats['vuln']}")
 
+if __name__ == "__main__":
+    main()
 if __name__ == "__main__":
     main()
