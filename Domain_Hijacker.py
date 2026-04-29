@@ -71,7 +71,7 @@ def auto_install():
 
         shutil.copyfile(script_path, install_path)
         os.chmod(install_path, 0o755)
-        print(f"{Fore.GREEN}[+] Success! Ab aap 'domain-hijacker' kahi se bhi run kar sakte hain.")
+        print(f"{Fore.GREEN}[+] Success! You can now run 'domain-hijacker' from any directory.")
     except Exception as e:
         print(f"{Fore.RED}[!] Installation failed: {e}")
 
