@@ -40,7 +40,7 @@ pip3 install -r requirements.txt --break-system-packages
 
 ## 📖 USAGE
 
-Global Command Setup (Recommended) Make the tool accessible from anywhere in your terminal: sudo python3 Domain_Hijacker.py --install
+Global Command Setup (Recommended) Make the tool accessible from anywhere in your terminal: ```bash sudo python3 Domain_Hijacker.py --install
 
 
  Once installed, you can run the tool from any directory using the domain-hijacker 
