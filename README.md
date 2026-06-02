@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/Author-D--666--V-white?style=for-the-badge" alt="Author">
 </p>
 
-<h1 align="center">⚔️ DOMAIN HIJACKER V5.2 ⚔️</h1>
+<h1 align="center">⚔️ DOMAIN HIJACKER ⚔️</h1>
 
 <p align="center">
   <b>The Most Advanced Multithreaded DNS Recon Engine for Massive-Scale Domain Takeover Hunting.</b>
